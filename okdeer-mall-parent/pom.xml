@@ -33,7 +33,6 @@
     </properties>
 
     <modules>
-        <module></module>
         <module>../okdeer-mall-gateway</module>
         <module>../okdeer-mall-web-service</module>
         <module>../okdeer-mall-manager</module>
@@ -52,10 +51,20 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--开发中的项目间依赖-->
+            <!--开发中的spring-boot依赖-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-eureka</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-config</artifactId>
                 <version>${version}</version>
             </dependency>
             <!--项目开发中的依赖包汇总-->
@@ -65,8 +74,25 @@
                 <artifactId>lombok</artifactId>
                 <version>1.16.10</version>
             </dependency>
+            <!--druid的最新版本都在maven仓库 $可以取到最近的版本-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid-version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
 
+    <repositories>
+        <!--里程碑的意思 不是快照 什么用目前不知道-->
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
