@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/okdeer-mall-base/okdeer-mall-base.iml" filepath="$PROJECT_DIR$/okdeer-mall-base/okdeer-mall-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/okdeer-mall-commons/okdeer-mall-commons.iml" filepath="$PROJECT_DIR$/okdeer-mall-commons/okdeer-mall-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/okdeer-mall-druid/okdeer-mall-druid.iml" filepath="$PROJECT_DIR$/okdeer-mall-druid/okdeer-mall-druid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../okdeer-mall-eureka-server/okdeer-mall-eureka-server.iml" filepath="$PROJECT_DIR$/../okdeer-mall-eureka-server/okdeer-mall-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/okdeer-mall-parent.iml" filepath="$PROJECT_DIR$/okdeer-mall-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../okdeer-mall-web-service/okdeer-mall-web-service.iml" filepath="$PROJECT_DIR$/../okdeer-mall-web-service/okdeer-mall-web-service.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="okdeer-mall-base" />
+        <module name="okdeer-mall-commons" />
+        <module name="okdeer-mall-druid" />
+        <module name="okdeer-mall-eureka-server" />
+        <module name="okdeer-mall-web-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="okdeer-mall-base" target="1.8" />
+      <module name="okdeer-mall-commons" target="1.8" />
+      <module name="okdeer-mall-controller" target="1.8" />
+      <module name="okdeer-mall-druid" target="1.8" />
+      <module name="okdeer-mall-eureka-server" target="1.8" />
+      <module name="okdeer-mall-gateway" target="1.8" />
+      <module name="okdeer-mall-manager" target="1.8" />
+      <module name="okdeer-mall-parent" target="1.8" />
+      <module name="okdeer-mall-web-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
