@@ -2,31 +2,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <artifactId>okdeer-mall-eureka-server</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
     <parent>
-        <artifactId>okdeer-mall-parent</artifactId>
         <groupId>com.okdeer.mall</groupId>
+        <artifactId>okdeer-mall-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../okdeer-mall-parent</relativePath>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
+    <name>okdeer-mall-eureka-server</name>
 
-    <artifactId>okdeer-mall-eureka-server</artifactId>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Camden.SR5</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>org.springframwork.boot</groupId>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -40,6 +37,19 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.okdeer.mall</groupId>
+            <artifactId>okdeer-mall-druid</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.okdeer.mall</groupId>
+            <artifactId>okdeer-mall-commons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.okdeer.mall</groupId>
+            <artifactId>okdeer-mall-base</artifactId>
         </dependency>
     </dependencies>
 
