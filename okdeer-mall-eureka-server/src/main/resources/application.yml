@@ -1,0 +1,69 @@
+---
+spring:
+  application:
+    name: okdeer-eureka-server-master
+    version: 1.0.0
+  profiles: master
+  security:
+    user:
+      name: admin
+      password: iABvsHDmjD
+
+server:
+  port: 11001
+
+eureka:
+  server:
+    enable-self-preservation: false # 关闭server的保护模式
+    eviction-interval-timer-in-ms: 1000 # 清理无效的服务节点间隔 默认是60*1000 单位ms毫秒
+  instance:
+    hostname:  master.okdeer.com # 当前实例的主机名称
+    lease-renewal-interval-in-seconds: 5 # 服务续约心跳的间隔时间 单位m秒 默认30
+    lease-expiration-duration-in-seconds: 10 #服务时效时间 默认90 单位m秒
+  client:
+    healthcheck:
+      enabled: true # 开启心跳检查
+    register-with-eureka: false #表示是否将自己注册到eureka server，当前为server不需要注册
+    fetch-registry: false # 表示是否从eureka server获取注册信息，默认为true，目前为单点server，不需要同步其server他节点的数据，故设置为false
+    registry-fetch-interval-seconds: 5 #从eureka server获取注册信息的时间间隔 默认30 单位m秒
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@master.okdeer.com:11001/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@slave1.okdeer.com:11001/eureka/
+
+logging:
+  level: info
+
+---
+#spring:
+#  application:
+#    name: okdeer-eureka-server-slave
+#    version: 1.0.0
+#  profiles: slave1
+#  security:
+#    user:
+#      name: admin
+#      password: iABvsHDmjD
+#
+#server:
+#  port: 11001
+#
+#eureka:
+#  server:
+#    enable-self-preservation: false # 关闭server的保护模式
+#    eviction-interval-timer-in-ms: 1000 # 清理无效的服务节点间隔 默认是60*1000 单位ms毫秒
+#  instance:
+#    hostname:  master.okdeer.com # 当前实例的主机名称
+#    lease-renewal-interval-in-seconds: 5 # 服务续约心跳的间隔时间 单位m秒 默认30
+#    lease-expiration-duration-in-seconds: 10 #服务时效时间 默认90 单位m秒
+#  client:
+#    healthcheck:
+#      enabled: true # 开启心跳检查
+#    register-with-eureka: false #表示是否将自己注册到eureka server，当前为server不需要注册
+#    fetch-registry: false # 表示是否从eureka server获取注册信息，默认为true，目前为单点server，不需要同步其server他节点的数据，故设置为false
+#    registry-fetch-interval-seconds: 5 #从eureka server获取注册信息的时间间隔 默认30 单位m秒
+#    service-url:
+#      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@master.okdeer.com:11001/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@slave1.okdeer.com:11001/eureka/
+#
+#logging:
+#  level: info
+
+
