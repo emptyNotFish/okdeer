@@ -1,2 +1,4 @@
 #Application Listeners
-org.springframework.context.ApplicationListener=\com.okdeer.mall.LoggingListener
+#\和后面的包若写在一行 需要中间有空格
+org.springframework.context.ApplicationListener=\
+com.okdeer.mall.LoggingListener

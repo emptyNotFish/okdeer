@@ -5,12 +5,15 @@
     <parent>
         <artifactId>okdeer-mall-parent</artifactId>
         <groupId>com.okdeer.mall</groupId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0-SNAPSHOT</version>
         <relativePath>../okdeer-mall-parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>okdeer-mall-web-service</artifactId>
+    <name>okdeer-mall-web-service</name>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -18,12 +21,28 @@
             <artifactId>spring-cloud-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <groupId>com.okdeer.mall</groupId>
+            <artifactId>okdeer-mall-base</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.okdeer.mall</groupId>
+            <artifactId>okdeer-mall-commons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.okdeer.mall</groupId>
+            <artifactId>okdeer-mall-druid</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 

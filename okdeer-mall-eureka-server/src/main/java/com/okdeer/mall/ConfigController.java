@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import static java.rmi.registry.LocateRegistry.getRegistry;
-
 /**
  * 对服务的配置信息进行操作管理
+ * TODO 弄明白eureka服务注册 同步的整个流程 读懂源码
+ * TODO 搞清楚为什么controller写在这里
+ * TODO post请求clean refresh的请求是eureka实现还是自己实现，以及实现方式
  * Created by Administrator on 2018/3/29 0029.
  */
 @RestController
@@ -23,6 +24,7 @@ public class ConfigController {
     //服务配置
     private static final String CONFIGSERVER = "config-server";
 
+    // spring提供的访问rest服务的客户端
     RestTemplate restTemplate = new RestTemplate();
 
     /**
@@ -35,6 +37,7 @@ public class ConfigController {
         getRegistry().getSortedApplications().forEach(app -> {
             stringBuilder.append(app.getName()).append(":");
             app.getInstances().forEach(instance -> {
+                // 判断服务实例状态是否上线
                 if (InstanceInfo.InstanceStatus.UP == instance.getStatus()){
                     stringBuilder.append(instance.getHomePageUrl()).append(":");
                 }
@@ -74,16 +77,21 @@ public class ConfigController {
         StringBuilder stringBuilder = new StringBuilder();
         getRegistry().getSortedApplications().forEach(app -> {
             app.getInstances().forEach(instance -> {
+                // 服务名称
                 String name = instance.getAppName();
                 if (CONFIGSERVER.equalsIgnoreCase(name))
                     return;
+                // 服务实例在线
                 if (InstanceInfo.InstanceStatus.UP == instance.getStatus()){
+                    // 实例访问地址
                     String url = instance.getHomePageUrl();
                     stringBuilder.append(name).append("[").append(url).append("]");
 
                     try{
+                        // post请求获取对象
                         ResponseEntity<String> response = restTemplate.postForEntity(
                                 String.format("%s%s", url, uri),null, String.class);
+                        // 返回成功
                         if (response.getStatusCode().is2xxSuccessful()){
                             stringBuilder.append(response.getBody());
                         }else {
@@ -101,6 +109,10 @@ public class ConfigController {
 
     }
 
+    /**
+     * 获取注册的服务信息
+     * @return
+     */
     private PeerAwareInstanceRegistry getRegistry(){
         return getServerContext().getRegistry();
     }
