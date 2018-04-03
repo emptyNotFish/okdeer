@@ -44,6 +44,7 @@ public class DruidConfiguration {
         LOGGER.debug("Init Druid Servlet Configuration ");
         // 开启druid的监控功能，可以在运行中通过监控数据调整程序设计，优化数据库的访问性能
         // 如果导入2.0 org.springframework.boot.context.embedded.ServletRegistrationBean 1.5.1是web.servlet.ServletRegistrationBean
+        // ideal检查不允许  ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
         // 设置IP白名单 没有或者配置为空 则允许所有访问
         servletRegistrationBean.addInitParameter("allow", "127.0.0.1");
@@ -65,6 +66,7 @@ public class DruidConfiguration {
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         // webstatfilter用于采集web-jdbc关联监控的数据
+        // ideal检查不允许  FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new WebStatFilter());
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new WebStatFilter());
         // 添加过滤规则 过滤所有请求
         filterRegistrationBean.addUrlPatterns("/*");

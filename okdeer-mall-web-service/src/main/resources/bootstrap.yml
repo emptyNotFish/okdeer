@@ -1,7 +1,9 @@
+server:
+  port: 8020
 
 spring:
   application:
-    name: okdeer-mall-web-service
+    name: okdeer-web-service
     version: 1.0.0
 
   jpa:
@@ -13,19 +15,24 @@ spring:
   datasource:
     # durid的数据库连接池
     type: com.alibaba.druid.pool.DruidDataSource
-    cas:
-      type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://127.0.0.1:3306/cas?useUnicode=true&characterEncoding=utf-8&useSSL=false
-      username: 'sMB+xUlL667fDqqcTwUHtg=='
-      password: 'sMB+xUlL667fDqqcTwUHtg=='
-      driver-class-name: com.mysql.jdbc.Driver
-      platform: mysql
-    mall:
-      url: jdbc:mysql://127.0.0.1:3306/mall?useUnicode=true&characterEncoding=utf-8&useSSL=false
-      username: 'sMB+xUlL667fDqqcTwUHtg=='
-      password: 'sMB+xUlL667fDqqcTwUHtg=='
-      driver-class-name: com.mysql.jdbc.Driver
-      platform: mysql
+    url: jdbc:mysql://127.0.0.1:3306/cas?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: 'sMB+xUlL667fDqqcTwUHtg=='
+    password: 'sMB+xUlL667fDqqcTwUHtg=='
+    driver-class-name: com.mysql.jdbc.Driver
+    platform: mysql
+#    cas:
+#      type: com.alibaba.druid.pool.DruidDataSource
+#      url: jdbc:mysql://127.0.0.1:3306/cas?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#      username: 'sMB+xUlL667fDqqcTwUHtg=='
+#      password: 'sMB+xUlL667fDqqcTwUHtg=='
+#      driver-class-name: com.mysql.jdbc.Driver
+#      platform: mysql
+#    mall:
+#      url: jdbc:mysql://127.0.0.1:3306/mall?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#      username: 'sMB+xUlL667fDqqcTwUHtg=='
+#      password: 'sMB+xUlL667fDqqcTwUHtg=='
+#      driver-class-name: com.mysql.jdbc.Driver
+#      platform: mysql
 
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
@@ -51,3 +58,7 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat: true
+
+logging:
+  file: /data/logs/mes-cloud-${spring.application.name}.log
+  level: info

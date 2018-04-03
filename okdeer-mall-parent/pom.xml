@@ -61,7 +61,7 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter</artifactId>
+                <artifactId>spring-cloud-starter-web</artifactId>
                 <version>1.1.7.RELEASE</version>
             </dependency>
             <dependency>
@@ -100,6 +100,11 @@
                 <artifactId>druid</artifactId>
                 <version>1.0.15</version>
             </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>2.4.6</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
@@ -115,4 +120,20 @@
             </snapshots>
         </repository>
     </repositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-depency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
