@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: okdeer-web-service
+    name: okdeer-mall-web-service
     version: 1.0.0
 
   jpa:

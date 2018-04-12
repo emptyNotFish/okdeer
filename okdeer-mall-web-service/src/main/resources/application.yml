@@ -3,3 +3,7 @@ mybatis:
   type-aliases-package: com.okdeer.mall.**.entity
   #mapper.xml所在位置
   mapper-locations: com.okdeer.mall.**.mapper
+  check-config-location: true
+
+
+#pagehelper:
