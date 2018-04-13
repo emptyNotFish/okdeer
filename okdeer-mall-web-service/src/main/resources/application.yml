@@ -5,5 +5,9 @@ mybatis:
   mapper-locations: com.okdeer.mall.**.mapper
   check-config-location: true
 
+pagehelper:
+  helperDialect: mysql
+  reasonable: ture
+  supportMethodsArguments: true
+  params: count=countSql
 
-#pagehelper:
