@@ -12,10 +12,16 @@
 
     <artifactId>okdeer-mall-web</artifactId>
 
+    <properties>
+        <web.service.version>1.0-SNAPSHOT</web.service.version>
+    </properties>
+
     <dependencies>
+        <!--这里只是测试私服上传添加的依赖 改成spring cloud不用引入依赖-->
         <dependency>
             <groupId>com.okdeer.mall</groupId>
             <artifactId>okdeer-mall-web-service</artifactId>
+            <version>${web.service.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

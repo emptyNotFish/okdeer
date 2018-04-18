@@ -37,7 +37,6 @@
         <module>okdeer-mall-base</module>
         <module>okdeer-mall-commons</module>
         <module>okdeer-mall-druid</module>
-        <module>../okdeer-mall-web</module>
     </modules>
 
     <dependencyManagement>
@@ -64,11 +63,6 @@
             <dependency>
                 <groupId>com.okdeer.mall</groupId>
                 <artifactId>okdeer-mall-druid</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.okdeer.mall</groupId>
-                <artifactId>okdeer-mall-web-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!--项目开发中的依赖包汇总-->
@@ -122,7 +116,7 @@
             </dependency>
             <dependency>
                 <groupId>net.logstash.logback</groupId>
-                <artifactId>logstash-logback-encode</artifactId>
+                <artifactId>logstash-logback-encoder</artifactId>
                 <version>4.7</version>
             </dependency>
             <dependency>
@@ -150,4 +144,15 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <distributionManagement>
+        <repository>
+            <!--id：对应setting.xml中server id -->
+            <id>nexus</id>
+            <!--name：nexus Repository name-->
+            <name>maven-snapshots</name>
+            <!--url：nexus Repository url-->
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+        </repository>
+    </distributionManagement>
 </project>

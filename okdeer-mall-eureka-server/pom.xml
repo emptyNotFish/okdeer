@@ -34,7 +34,7 @@
         <!--日志记载-->
         <dependency>
             <groupId>net.logstash.logback</groupId>
-            <artifactId>logstash-logback-encode</artifactId>
+            <artifactId>logstash-logback-encoder</artifactId>
         </dependency>
     </dependencies>
 

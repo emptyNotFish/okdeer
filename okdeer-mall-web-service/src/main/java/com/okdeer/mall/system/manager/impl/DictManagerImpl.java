@@ -16,7 +16,7 @@ public class DictManagerImpl implements DictManager {
     public List<DictDto> findDictList(Map<String, Object> condition){
         List<DictDto> dictDtoList = Lists.newArrayList();
         DictDto dto = new DictDto();
-        dto.setId("234253432645");
+        //dto.setId("234253432645");
         dictDtoList.add(dto);
         return dictDtoList;
     }
