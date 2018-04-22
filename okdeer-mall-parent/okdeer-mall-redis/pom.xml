@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>okdeer-mall-parent</artifactId>
+        <groupId>com.okdeer.mall</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>okdeer-mall-redis</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.okdeer.mall</groupId>
+            <artifactId>okdeer-mall-commons</artifactId>
+        </dependency>
+        <!--  redis -->
+        <!--1.5以后已经改名叫spring-boot-starter-data-redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--分布式系统中，session共享有很多的解决方案，其中托管到缓存中应该是最常用的方案之一,这里采用的就是次方案-->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

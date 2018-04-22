@@ -24,8 +24,8 @@ import javax.sql.DataSource;
  * 而在service里面不需要做特殊说明
  * Created by pact on 2018/4/13.
  */
-@Configuration
-@MapperScan(basePackages = "com.okdeer.mall", sqlSessionTemplateRef = "baseSqlSessionTemplate")
+//@Configuration
+///@MapperScan(basePackages = "com.okdeer.mall", sqlSessionTemplateRef = "baseSqlSessionTemplate")
 public class MallDataSourceConfig {
 
     @Bean(name = "baseDataSource")

@@ -15,24 +15,11 @@ spring:
   datasource:
     # durid的数据库连接池 主数据源，默认的，spring boot 1.4版本中没有spring.datasource.type属性
     type: com.alibaba.druid.pool.DruidDataSource
-#    url: jdbc:mysql://127.0.0.1:3306/cas?useUnicode=true&characterEncoding=utf-8&useSSL=false
-#    username: 'sMB+xUlL667fDqqcTwUHtg=='
-#    password: 'sMB+xUlL667fDqqcTwUHtg=='
-#    driver-class-name: com.mysql.jdbc.Driver
-#    platform: mysql
-    cas:
-      type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://127.0.0.1:3306/cas?useUnicode=true&characterEncoding=utf-8&useSSL=false
-      username: 'sMB+xUlL667fDqqcTwUHtg=='
-      password: 'sMB+xUlL667fDqqcTwUHtg=='
-      driver-class-name: com.mysql.jdbc.Driver
-      platform: mysql
-    mall:
-      url: jdbc:mysql://127.0.0.1:3306/mall?useUnicode=true&characterEncoding=utf-8&useSSL=false
-      username: 'sMB+xUlL667fDqqcTwUHtg=='
-      password: 'sMB+xUlL667fDqqcTwUHtg=='
-      driver-class-name: com.mysql.jdbc.Driver
-      platform: mysql
+    url: jdbc:mysql://127.0.0.1:3306/ca?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: 'sMB+xUlL667fDqqcTwUHtg=='
+    password: 'sMB+xUlL667fDqqcTwUHtg=='
+    driver-class-name: com.mysql.jdbc.Driver
+    platform: mysql
 
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 通常来说只需要修改初始化大小，最小，最大这三个配置就可以了

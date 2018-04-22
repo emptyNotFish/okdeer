@@ -1,6 +1,6 @@
 mybatis:
   #实体类所做包
-  type-aliases-package: com.okdeer.mall.**.entity
+  type-aliases-package: com.okdeer.mall.entity
   #mapper.xml所在位置
   mapper-locations: com.okdeer.mall.**.mapper
   check-config-location: true
@@ -10,4 +10,46 @@ pagehelper:
   reasonable: ture
   supportMethodsArguments: true
   params: count=countSql
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@master.okdeer.com:11001/eureka/
+
+security:
+  user:
+    name: admin
+    password: iABvsHDmjD
+
+# redis配置 全部是默认配置 这里只是单机配置 可以进行集群配置或者哨兵配置
+spring:
+  redis:
+    # Redis服务器地址
+    host: 127.0.0.1
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password:
+    # 连接超时时间（毫秒）
+    timeout: 0
+    # Redis数据库索引（默认为0）
+    database: 0
+    pool:
+      # 连接池最大连接数（使用负值表示没有限制）
+      max-active: 8
+      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      max-wait: -1
+      # 连接池中的最大空闲连接
+      max-idle: 8
+      # 连接池中的最小空闲连接
+      min-idle: 0
+
+
 
