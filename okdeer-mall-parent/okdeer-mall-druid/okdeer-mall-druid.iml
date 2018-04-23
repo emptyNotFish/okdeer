@@ -28,6 +28,8 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.6" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.7" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.17" level="project" />
+    <orderEntry type="library" name="Maven: bouncycastle:bcmail-jdk16:140" level="project" />
+    <orderEntry type="library" name="Maven: bouncycastle:bcprov-jdk16:140" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:1.5.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:1.5.1.RELEASE" level="project" />

@@ -55,5 +55,7 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.7" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.10" level="project" />
+    <orderEntry type="library" name="Maven: bouncycastle:bcmail-jdk16:140" level="project" />
+    <orderEntry type="library" name="Maven: bouncycastle:bcprov-jdk16:140" level="project" />
   </component>
 </module>

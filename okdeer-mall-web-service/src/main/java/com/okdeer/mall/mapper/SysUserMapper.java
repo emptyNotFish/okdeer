@@ -16,5 +16,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SysUserMapper extends IBaseMapper {
 
-    SysUser findByUserName(String username);
+    SysUser findByUserName(String userName);
 }

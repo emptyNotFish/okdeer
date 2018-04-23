@@ -25,11 +25,11 @@ public class SysUserServiceImpl implements SysUserService {
     private SysPermissionMapper sysPermissionMapper;
 
     @Override
-    public SysUser findByUsername(String username) {
+    public SysUser findByUsername(String userName) {
         //获取用户的角色和权限列表
         // 简单一点不用关联查询
         //根据用户名查询用户信息
-        SysUser sysUser = sysUserMapper.findByUserName(username);
+        SysUser sysUser = sysUserMapper.findByUserName(userName);
         // 根据userid查询管理的角色信息
         SysUserRole sysUserRole = new SysUserRole();
         sysUserRole.setUserId(sysUser.getId());

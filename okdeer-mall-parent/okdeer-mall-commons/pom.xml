@@ -59,6 +59,10 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>bouncycastle</groupId>
+            <artifactId>bcmail-jdk16</artifactId>
+        </dependency>
     </dependencies>
 
 
