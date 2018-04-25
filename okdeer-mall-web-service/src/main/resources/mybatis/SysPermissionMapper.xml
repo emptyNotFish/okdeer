@@ -4,15 +4,16 @@
     <resultMap id="BaseResultMap" type="com.okdeer.mall.entity.SysPermission" >
         <id column="id" property="id" jdbcType="VARCHAR" />
         <result column="name" property="name" jdbcType="VARCHAR" />
-        <result column="code" property="code" jdbcType="VARCHAR" />
         <result column="url" property="url" jdbcType="VARCHAR" />
         <result column="permission" property="permission" jdbcType="VARCHAR" />
         <result column="type" property="type" jdbcType="INTEGER" />
         <result column="disabled" property="disabled" jdbcType="BIT" />
+        <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
+        <result column="icon" property="icon" jdbcType="VARCHAR" />
     </resultMap>
 
     <sql id="Base_Column_List" >
-        id, name, code, url, permission, type, disabled
+        id, name, url, permission, type, disabled,parent_id,icon
     </sql>
 
     <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String" >
@@ -31,9 +32,6 @@
             <if test="name != null" >
                 name,
             </if>
-            <if test="code != null" >
-                code,
-            </if>
             <if test="url != null" >
                 url,
             </if>
@@ -46,6 +44,12 @@
             <if test="disabled != null" >
                 disabled,
             </if>
+            <if test="parentId != null" >
+                parent_id,
+            </if>
+            <if test="icon != null" >
+                icon,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="id != null" >
@@ -53,9 +57,6 @@
             </if>
             <if test="name != null" >
                 #{name,jdbcType=VARCHAR},
-            </if>
-            <if test="code != null" >
-                #{code,jdbcType=VARCHAR},
             </if>
             <if test="url != null" >
                 #{url,jdbcType=VARCHAR},
@@ -69,6 +70,12 @@
             <if test="disabled != null" >
                 #{disabled,jdbcType=BIT},
             </if>
+            <if test="parentId != null" >
+                #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null" >
+                #{icon,jdbcType=VARCHAR},
+            </if>
         </trim>
     </insert>
 
@@ -77,9 +84,6 @@
         <set >
             <if test="name != null" >
                 name = #{name,jdbcType=VARCHAR},
-            </if>
-            <if test="code != null" >
-                code = #{code,jdbcType=VARCHAR},
             </if>
             <if test="url != null" >
                 url = #{url,jdbcType=VARCHAR},
@@ -93,6 +97,12 @@
             <if test="disabled != null" >
                 disabled = #{disabled,jdbcType=BIT},
             </if>
+            <if test="parentId != null" >
+                parent_id = #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null" >
+                icon = #{icon,jdbcType=VARCHAR},
+            </if>
         </set>
         where id = #{id,jdbcType=VARCHAR}
     </update>
@@ -104,7 +114,7 @@
 
     <select id="findPermissionList" resultMap="BaseResultMap" parameterType="com.okdeer.mall.entity.SysRolePermission" >
         select
-        <include refid="Base_Column_List" />
+        permission.id, permission.name, permission.url, permission.permission, permission.type, permission.parent_id,permission.icon
         from sys_permission permission
         left JOIN sys_role_permission role
         on permission.id= role.permission_id

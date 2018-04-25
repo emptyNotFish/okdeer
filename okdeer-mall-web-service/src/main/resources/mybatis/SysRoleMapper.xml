@@ -83,7 +83,7 @@
     </delete>
     <select id="findRoleList" resultMap="BaseResultMap" parameterType="com.okdeer.mall.entity.SysUserRole" >
         select
-        <include refid="Base_Column_List" />
+        role.id, role.name, role.code, role.description, role.status
         from sys_role role
         left join sys_user_role sur on role.id = sur.role_id
         where sur.user_id = #{userId,jdbcType=VARCHAR}

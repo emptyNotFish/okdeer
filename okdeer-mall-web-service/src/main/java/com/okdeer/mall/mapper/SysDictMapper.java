@@ -9,10 +9,13 @@ package com.okdeer.mall.mapper;
 
 import base.IBaseMapper;
 import com.okdeer.mall.entity.SysDict;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
-
+@Mapper
+@Repository
 public interface SysDictMapper extends IBaseMapper {
     /**
      *

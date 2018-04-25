@@ -29,10 +29,6 @@ public class SysPermission implements Serializable {
      */
     private String name;
     /**
-     * 权限编码
-     */
-    private String code;
-    /**
      * 资源访问路径
      */
     private String url;
@@ -48,5 +44,12 @@ public class SysPermission implements Serializable {
      * 是否删除0否1是
      */
     private Boolean disabled;
-
+    /**
+     * 父节点id
+     */
+    private String parentId;
+    /**
+     * 资源图片路径
+     */
+    private String icon;
 }

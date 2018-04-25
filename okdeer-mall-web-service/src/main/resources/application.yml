@@ -2,7 +2,7 @@ mybatis:
   #实体类所做包
   type-aliases-package: com.okdeer.mall.entity
   #mapper.xml所在位置
-  mapper-locations: com.okdeer.mall.**.mapper
+  mapper-locations: classpath*:mybatis/*.xml
   check-config-location: true
 
 pagehelper:
