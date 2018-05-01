@@ -23,6 +23,10 @@ import redis.clients.jedis.JedisPoolConfig;
 import java.lang.reflect.Method;
 
 /**
+ * 在Spring Boot中共有三种加载Redis配置的方式：
+ * AutoConfig加载
+ *  自己写代码加载 下面用的是这一种
+ *   xml加载
  * Created by Administrator on 2018/4/20 0020.
  */
 @EnableCaching //开启注解缓存
@@ -119,11 +123,11 @@ public class RedisConfig extends CachingConfigurerSupport {
     public RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<String,Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
-        //key序列化方式;但是如果方法上有Long等非String类型的话，会报类型转换错误；
+        //key序列化方式;但是如果方法上有Long等非String类型的话，会报类型转换错误； 对于string的序列化方式
         RedisSerializer<String> redisSerializer = new StringRedisSerializer();//Long类型不可以会出现异常信息;
         redisTemplate.setKeySerializer(redisSerializer);
         redisTemplate.setHashKeySerializer(redisSerializer);
-        //JdkSerializationRedisSerializer序列化方式;
+        //JdkSerializationRedisSerializer序列化方式; 对于hash的序列化方式
         JdkSerializationRedisSerializer jdkRedisSerializer=new JdkSerializationRedisSerializer();
         redisTemplate.setValueSerializer(jdkRedisSerializer);
         redisTemplate.setHashValueSerializer(jdkRedisSerializer);

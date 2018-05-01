@@ -7,14 +7,14 @@
 package com.okdeer.mall.mapper;
 
 
-import base.IBaseMapper;
+
 import com.okdeer.mall.entity.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 @Mapper
 @Repository
-public interface SysUserMapper extends IBaseMapper {
+public interface SysUserMapper {
 
     SysUser findByUserName(String userName);
 }

@@ -17,7 +17,7 @@
             <artifactId>okdeer-mall-commons</artifactId>
         </dependency>
         <!--  redis -->
-        <!--1.5以后已经改名叫spring-boot-starter-data-redis-->
+        <!--spring boot 1.5以后已经改名叫spring-boot-starter-data-redis-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>

@@ -40,12 +40,14 @@ public class MyShiroRealm extends AuthorizingRealm {
         //实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
         SysUser sysUser = sysUserService.findByUsername(userName);
         System.out.println("----->>sysUser="+sysUser);
+        //不只判断账号是否存在 还要判断账号是否启用或者过期
         if(sysUser == null){
             return null;
         }
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 sysUser, //用户名
                 sysUser.getPassword(), //密码
+                // 这个salt不是固定的 而是按照规则生成的 如果数据库里面保存了salt字段 可以直接取数据库字段
                 ByteSource.Util.bytes(sysUser.getCredentialsSalt()),//salt=username+salt
                 getName()  //realm name
         );

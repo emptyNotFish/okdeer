@@ -7,7 +7,7 @@
 package com.okdeer.mall.mapper;
 
 
-import base.IBaseMapper;
+
 import com.okdeer.mall.entity.SysRole;
 import com.okdeer.mall.entity.SysUserRole;
 import org.apache.ibatis.annotations.Mapper;
@@ -17,7 +17,7 @@ import java.util.List;
 
 @Mapper
 @Repository
-public interface SysRoleMapper extends IBaseMapper {
+public interface SysRoleMapper {
 
     List<SysRole> findRoleList(SysUserRole sysUserRole);
 }

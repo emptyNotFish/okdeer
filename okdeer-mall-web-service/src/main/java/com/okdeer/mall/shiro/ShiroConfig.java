@@ -1,5 +1,6 @@
 package com.okdeer.mall.shiro;
 
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
@@ -9,10 +10,17 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * 要在后台做权限认证，必须先在网关做身份认证，将身份认证信息使用redis跨域到后台
+ *
  * Created by Administrator on 2018/4/21 0021.
  */
 @Configuration
 public class ShiroConfig {
+    /**
+     * 这些配置可以全部放在配置文件里面 然后当成属性注入 在下面使用
+     * @param securityManager
+     * @return
+     */
     @Bean
     public ShiroFilterFactoryBean shirFilter(org.apache.shiro.mgt.SecurityManager securityManager) {
         System.out.println("ShiroConfiguration.shirFilter()");
@@ -45,6 +53,9 @@ public class ShiroConfig {
     @Bean
     public MyShiroRealm myShiroRealm(){
         MyShiroRealm myShiroRealm = new MyShiroRealm();
+        // 先注释 后面再说
+        // 设置md5加密
+        //myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
         return myShiroRealm;
     }
 
@@ -54,5 +65,18 @@ public class ShiroConfig {
         DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();
         securityManager.setRealm(myShiroRealm());
         return securityManager;
+    }
+
+    /**
+     * 凭证匹配器 （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了 ）
+     *
+     * @return
+     */
+   // @Bean
+    public HashedCredentialsMatcher hashedCredentialsMatcher() {
+        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        hashedCredentialsMatcher.setHashAlgorithmName("md5");// 散列算法:这里使用MD5算法;
+        hashedCredentialsMatcher.setHashIterations(2);// 散列的次数，比如散列两次，相当于md5(md5(""));
+        return hashedCredentialsMatcher;
     }
 }

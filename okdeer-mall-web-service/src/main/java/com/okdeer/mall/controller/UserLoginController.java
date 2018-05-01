@@ -22,6 +22,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
+ * shiro的身份认证的流程，大致是这样的：当我们调用subject.login(token)的时候，
+ * 首先这次身份认证会委托给Security Manager，而Security Manager又会委托给Authenticator，
+ * 接着Authenticator会把传过来的token再交给我们自己注入的Realm进行数据匹配从而完成整个认证
  * Created by Administrator on 2018/4/21 0021.
  */
 @RestController
@@ -62,7 +65,9 @@ public class UserLoginController {
         String userName = map.get("username").toString();
         String password = map.get("password").toString();
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
+        //设置记住我为true 默认为false
+        UsernamePasswordToken token = new UsernamePasswordToken(userName, password,true);
+        // 最好捕获异常 根据不同的异常返回不同的消息
         subject.login(token);
         // 登录失败从request中获取shiro处理的异常信息。
         // shiroLoginFailure:就是shiro异常类的全类名.
