@@ -1,4 +1,4 @@
-package system.entity;
+package com.okdeer.mall.entity;
 
 /**
  * Created by pact on 2018/4/12.

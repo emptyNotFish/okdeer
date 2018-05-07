@@ -23,7 +23,6 @@ public class EurekaApplication {
     public static void main(String[] args) throws UnknownHostException {
         SpringApplication application = new SpringApplication(EurekaApplication.class);
         Environment environment = application.run(args).getEnvironment();
-
         LOGGER.info("\n----------------------------------------------------------\n\t" +
                         "Application '{}' is running! Access URLs:\n\t" +
                         "Local: \t\thttp://localhost:{}\n\t" +

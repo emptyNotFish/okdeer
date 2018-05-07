@@ -12,10 +12,8 @@ import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
 import utils.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,12 +35,15 @@ public class UserLoginController {
 
     @Autowired
     private SysConfigService sysConfigService;
+
+    @Value("${server.port}")
+    private String port;
     /**
      * 返回16位的code
      * @return
      */
-    @RequestMapping(value = "/get/code", method = RequestMethod.POST)
-    public JSONResult getCode(){
+    @RequestMapping(value = "/get/code", method = RequestMethod.GET)
+    public JSONResult getCode(@RequestParam String name){
         try {
             String nowDate = DateUtil.getDateStr(DateUtil.strToDate(DateUtil.NowStr()), "yyyy-MM-dd");
             Md5 md5 = new Md5();
@@ -51,16 +52,15 @@ public class UserLoginController {
                 return CommonError.FAIL_ERROR.toJSONResult("获取CODE");
             } else {
                 code = StringUtils.subStringAdd(code, 16, "0");
-                return JSONResult.success(code);
+                return JSONResult.success(code+",获取的服务端口号是："+port);
             }
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             return CommonError.FAIL_ERROR.toJSONResult("获取CODE");
         }
     }
-
-    @RequestMapping("/login")
-    public String login(HttpServletRequest request, @RequestBody Map<String, Object> map) throws Exception{
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public String login(HttpServletRequest request, @RequestBody Map<Object, Object> map) throws Exception{
         System.out.println("UserLoginController.login()");
         String userName = map.get("username").toString();
         String password = map.get("password").toString();

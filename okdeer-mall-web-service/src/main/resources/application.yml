@@ -12,22 +12,6 @@ pagehelper:
   supportMethodsArguments: true
   params: count=countSql
 
-eureka:
-  instance:
-    lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 10
-    prefer-ip-address: true
-  client:
-    register-with-eureka: true
-    healthcheck:
-      enabled: true
-    serviceUrl:
-      defaultZone: http://${security.user.name}:${security.user.password}@master.okdeer.com:11001/eureka/
-
-security:
-  user:
-    name: admin
-    password: iABvsHDmjD
 
 # redis配置 全部是默认配置 这里只是单机配置 可以进行集群配置或者哨兵配置
 spring:

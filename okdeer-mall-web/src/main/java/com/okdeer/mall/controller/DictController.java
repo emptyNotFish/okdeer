@@ -1,11 +1,11 @@
-package system;
+package com.okdeer.mall.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import system.entity.DictDto;
+import com.okdeer.mall.entity.DictDto;
 
 import java.util.List;
 import java.util.Map;
@@ -18,7 +18,7 @@ import java.util.Map;
  */
 @RestController
 //@RequestMapping("/dict")
-@RequestMapping("/feign-service")
+@RequestMapping("/dict-service")
 public class DictController {
 
     @Autowired

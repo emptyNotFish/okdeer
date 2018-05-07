@@ -18,8 +18,8 @@ import java.net.UnknownHostException;
  * Created by pact on 2018/3/28.
  */
 @SpringBootApplication
-//@EnableEurekaClient // 非eureka做注册中心用@EnableDiscoveryClient 其包含EnableEurekaClient功能，eureka做注册中心 建议用EnableEurekaClient
-//@EnableFeignClients
+@EnableEurekaClient // 非eureka做注册中心用@EnableDiscoveryClient 其包含EnableEurekaClient功能，eureka做注册中心 建议用EnableEurekaClient
+//@EnableFeignClients //这里应该不需要feign功能 它不需要调用其他项目的服务
 //@EnableCaching  // 自动化配置适合的缓存管理器
 public class WebServiceApplication{
 

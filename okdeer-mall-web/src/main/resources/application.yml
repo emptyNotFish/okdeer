@@ -1,0 +1,27 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: web-feign
+    version: 1.0.0
+  security:
+    user:
+      name: admin
+      password: iABvsHDmjD
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    healthcheck:
+      enabled: true
+    serviceUrl:
+#    网上博文看到的是只需要配置一个server地址，由于server之间会做同步，所以其他server也会有client的注册信息，而且这样不会因为server的增加而修改client端的代码
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@master.okdeer.com:11001/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@slave1.okdeer.com:11002/eureka/
+
+logging:
+  level: info

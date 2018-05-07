@@ -1,9 +1,14 @@
+package com.okdeer.mall;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
@@ -15,6 +20,9 @@ import java.net.UnknownHostException;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
+@EnableHystrixDashboard
+//@EnableCircuitBreaker //使用断路器 EnableHystrix的注解同这个是一样的
+@EnableHystrix
 public class WebApplication {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WebApplication.class);

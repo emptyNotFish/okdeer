@@ -1,4 +1,4 @@
-package entity;
+package com.okdeer.mall.dto;
 
 /**
  * Created by Administrator on 2018/4/18 0018.

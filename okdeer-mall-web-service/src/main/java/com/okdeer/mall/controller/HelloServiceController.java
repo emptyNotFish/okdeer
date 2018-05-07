@@ -1,6 +1,6 @@
-package controller;
+package com.okdeer.mall.controller;
 
-import entity.UserDemo;
+import com.okdeer.mall.dto.UserDemo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.Random;
  */
 @RestController
 @RequestMapping("/feign-service")
-public class HelloServiceContorller {
+public class HelloServiceController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -28,20 +28,20 @@ public class HelloServiceContorller {
 
     @RequestMapping(value="/serviceGet",method= RequestMethod.GET)
     public String helloService(@RequestParam String name) {
-        sleep("get");
+       // sleep("get");
         return "HelloServiceImpl name :"+name;
     }
     //如果缺少了RequestHeader等注解，服务运行起来以后虽然不会报错，但是获取不到入参
     @RequestMapping(value="/serviceHead", method=RequestMethod.HEAD)
     public String helloService(@RequestHeader String name,
                                @RequestHeader String password) {
-        sleep("header");
+        //sleep("header");
         return "helloServiceHead name :"+name +" password:"+password;
     }
 
     @RequestMapping(value="/servicePost", method=RequestMethod.POST)
     public String helloService(@RequestBody UserDemo userDemo) {
-        sleep("post");
+        //sleep("post");
         return userDemo.toString();
     }
 }
