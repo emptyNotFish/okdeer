@@ -30,9 +30,4 @@ public class DictController {
         return null;
 
     }
-
-    @RequestMapping(value="/serviceGet",method=RequestMethod.GET)
-    public String helloService(@RequestParam String name) {
-        return "HelloServiceImpl name :"+name;
-    }
 }

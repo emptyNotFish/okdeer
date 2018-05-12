@@ -1,0 +1,22 @@
+server:
+  port: 8769
+spring:
+  application:
+    name: zuul-gateway
+    version: 1.0.0
+  profiles: master
+  security:
+    user:
+      name: admin
+      password: iABvsHDmjD
+eureka:
+  client:
+    service-url: http://${spring.security.user.name}:${spring.security.user.password}@master.okdeer.com:11001/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@slave1.okdeer.com:11002/eureka/
+zuul:
+  routes:
+    web-feign:
+      path: /web-feign/**
+      serviceId: web-feign
+    web-service:
+    path: /web-service/**
+    serviceId: okdeer-mall-web-service

@@ -14,7 +14,7 @@ import java.util.Map;
  *
  * Created by Administrator on 2018/4/21 0021.
  */
-@Configuration
+//@Configuration
 public class ShiroConfig {
     /**
      * 这些配置可以全部放在配置文件里面 然后当成属性注入 在下面使用

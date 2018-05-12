@@ -41,6 +41,7 @@
         <module>okdeer-mall-redis</module>
         <module>okdeer-mall-security</module>
         <module>okdeer-mall-mail</module>
+        <module>../okdeer-mall-config-client</module>
     </modules>
 
     <dependencyManagement>
@@ -214,7 +215,15 @@
             </snapshots>
         </repository>
     </repositories>
-
+    <!-- ideal也可以打包 目前不知道他有什么优势-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
     <distributionManagement>
         <repository>
             <!--id：对应setting.xml中server id -->

@@ -1,0 +1,23 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: mall-config-server
+  cloud:
+    config:
+#    远程仓库的分支
+      label: master
+      server:
+        git:
+#        访问git仓库的用户名 公开仓库不需要填写用户名和密码 私有仓库需要填写
+          username:
+#          访问仓库的密码
+          password:
+#          git仓库地址
+          uri: https://github.com/forezp/SpringcloudConfig/
+#          配置仓库路径
+          search-paths: respo
+#      配置的环境 dev开发环境配置文件  test测试环境  pro正式环境
+#      profile: dev
+#      配置服务中心的网址
+#      uri: http://localhost:8888/
