@@ -2,9 +2,13 @@ package com.okdeer.mall;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -13,6 +17,7 @@ import java.net.UnknownHostException;
  * Created by Administrator on 2018/5/11 0011.
  */
 @SpringBootApplication
+@EnableEurekaClient
 public class ConfigClientApplication {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConfigClientApplication.class);
@@ -31,4 +36,5 @@ public class ConfigClientApplication {
                 environment.getProperty("server.port"),
                 environment.getActiveProfiles());
     }
+
 }

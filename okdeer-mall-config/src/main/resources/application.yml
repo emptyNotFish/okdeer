@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: mall-config-server
+  security:
+    user:
+      name: admin
+      password: iABvsHDmjD
   cloud:
     config:
 #    远程仓库的分支
@@ -14,10 +18,11 @@ spring:
 #          访问仓库的密码
           password:
 #          git仓库地址
-          uri: https://github.com/forezp/SpringcloudConfig/
+          uri: https://github.com/emptyNotFish/okdeer/
 #          配置仓库路径
-          search-paths: respo
-#      配置的环境 dev开发环境配置文件  test测试环境  pro正式环境
-#      profile: dev
-#      配置服务中心的网址
-#      uri: http://localhost:8888/
+          search-paths: config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@master.okdeer.com:11001/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@slave1.okdeer.com:11002/eureka/
+

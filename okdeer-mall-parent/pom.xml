@@ -41,7 +41,6 @@
         <module>okdeer-mall-redis</module>
         <module>okdeer-mall-security</module>
         <module>okdeer-mall-mail</module>
-        <module>../okdeer-mall-config-client</module>
     </modules>
 
     <dependencyManagement>

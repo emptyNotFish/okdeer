@@ -1,14 +1,27 @@
 server:
   port: 8881
+# 正常这些配置应该在bootstrap中 会优先加载 避免出错 实现外部化配置
 spring:
   application:
-    name: mall-config-server
+#  对应配置文件规则中的{application}部分 所以这个名字不能随便写 一定要跟配置文件的名称进行对应
+    name: configtest
+  security:
+    user:
+      name: admin
+      password: iABvsHDmjD
   cloud:
     config:
-#    远程仓库的分支
+#    远程仓库的分支 对应配置文件规则中的{label}
       label: master
-#      配置的环境 dev开发环境配置文件  test测试环境  pro正式环境
-      profile: dev
-#      配置服务中心的网址
-      uri: http://localhost:8888/
+#      配置的环境 dev开发环境配置文件  test测试环境  pro正式环境 对应配置文件规则中的{profile}
+      profile: product
+      discovery:
+        enabled: true
+        service-id: mall-config-server
+#      配置服务中心config-server的地址
+#      uri: http://localhost:8888/
 
+eureka:
+  client:
+    service-url:
+       defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@master.okdeer.com:11001/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@slave1.okdeer.com:11002/eureka/

@@ -81,6 +81,6 @@ spring:
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat: true
 
-logging:
-  file: /data/logs/mes-cloud-${spring.application.name}.log
-  level: info
+#logging:
+#  file: /data/logs/mes-cloud-${spring.application.name}.log
+#  level: info
