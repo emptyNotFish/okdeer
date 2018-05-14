@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * fallback采用feign的配置方式 直接增加fallback类
  * ribbon的采用方式直接在方法上面增加 hystrix在同一个类中
  */
-@FeignClient(name="okdeer-mall-web-service",fallback=DemoFeignFallback.class)
+//@FeignClient(name="okdeer-mall-web-service",fallback=DemoFeignFallback.class)
 public interface DemoFeignService {
 	
 
