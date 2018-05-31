@@ -21,7 +21,7 @@ public class ShiroConfig {
      * @param securityManager
      * @return
      */
-    @Bean
+    //@Bean
     public ShiroFilterFactoryBean shirFilter(org.apache.shiro.mgt.SecurityManager securityManager) {
         System.out.println("ShiroConfiguration.shirFilter()");
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
@@ -50,7 +50,7 @@ public class ShiroConfig {
         return shiroFilterFactoryBean;
     }
 
-    @Bean
+    //@Bean
     public MyShiroRealm myShiroRealm(){
         MyShiroRealm myShiroRealm = new MyShiroRealm();
         // 先注释 后面再说
@@ -60,7 +60,7 @@ public class ShiroConfig {
     }
 
 
-    @Bean
+   // @Bean
     public org.apache.shiro.mgt.SecurityManager securityManager(){
         DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();
         securityManager.setRealm(myShiroRealm());

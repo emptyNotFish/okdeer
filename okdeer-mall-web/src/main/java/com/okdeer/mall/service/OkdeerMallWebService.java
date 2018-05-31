@@ -1,7 +1,7 @@
 package com.okdeer.mall.service;
 
 import com.okdeer.mall.entity.UserDemo;
-import com.okdeer.mall.service.fallback.DemoFeignFallback;
+import com.okdeer.mall.service.fallback.OkdeerMallWebFallback;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
  * fallback采用feign的配置方式 直接增加fallback类
  * ribbon的采用方式直接在方法上面增加 hystrix在同一个类中
  */
-//@FeignClient(name="okdeer-mall-web-service",fallback=DemoFeignFallback.class)
-public interface DemoFeignService {
+@FeignClient(name="okdeer-mall-web-service",fallback= OkdeerMallWebFallback.class)
+public interface OkdeerMallWebService {
 	
 
 	@RequestMapping(value="/feign-service/serviceGet",method=RequestMethod.GET)

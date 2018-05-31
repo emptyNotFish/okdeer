@@ -1,3 +1,15 @@
+#原来的配置在application 因为集成的logback和logstash对接 logback-spring.xml的加载在application之前
+# 为避免拿不到spring.application.name报错，所以转移到这里
+spring:
+  application:
+    name: web-feign
+    version: 1.0.0
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      percentage: 0.1
+
 #云服务内部调用超时设置
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
 hystrix:
@@ -7,10 +19,3 @@ hystrix:
 feign:
   hystrix:
     enabled: true
-
-#spring:
-#  zipkin:
-#    base-url: http://127.0.0.1:9411
-#  sleuth:
-#    sampler:
-#      percentage: 0.1

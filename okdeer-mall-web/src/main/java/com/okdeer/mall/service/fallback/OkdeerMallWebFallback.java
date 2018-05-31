@@ -2,12 +2,11 @@ package com.okdeer.mall.service.fallback;
 
 
 import com.okdeer.mall.entity.UserDemo;
-import com.okdeer.mall.service.DemoFeignService;
-import org.springframework.stereotype.Component;
+import com.okdeer.mall.service.OkdeerMallWebService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DemoFeignFallback implements DemoFeignService{
+public class OkdeerMallWebFallback implements OkdeerMallWebService {
 	@Override
 	public String helloService(String name) {
 		return "get error";

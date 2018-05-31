@@ -1,10 +1,10 @@
 package com.okdeer.mall.controller;
 
 import com.okdeer.mall.entity.UserDemo;
-import com.okdeer.mall.service.DemoFeignService;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
+import com.okdeer.mall.service.OkdeerMallWebService;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value="/demoFeign", method=RequestMethod.GET)
 public class DemoFeignController {
 
+	private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+
 	@Autowired
-	private DemoFeignService demoFeignService;
+	private OkdeerMallWebService okdeerMallWebService;
 
 	// 使用该注解描述接口方法信息
 	@ApiOperation(value="获取项目组Sonar对应的Url信息", notes="根据id获取项目组Sonar对应的Url信息")
@@ -26,12 +28,13 @@ public class DemoFeignController {
 //	})
 	@RequestMapping(value="/test", method=RequestMethod.GET)
 	public String demoServiceTest() {
+		LOGGER.info("===call test====");
 		StringBuffer sb = new StringBuffer();
-		sb.append(demoFeignService.helloService("yuanyuan"));
+		sb.append(okdeerMallWebService.helloService("yuanyuan"));
 		sb.append("\n");
-		sb.append(demoFeignService.helloService("yjt","xixihaha"));
+		sb.append(okdeerMallWebService.helloService("yjt","xixihaha"));
 		sb.append("\n");
-		sb.append(demoFeignService.helloService(new UserDemo("yejingtao","123456")));
+		sb.append(okdeerMallWebService.helloService(new UserDemo("yejingtao","123456")));
 		return sb.toString();
 
 	}

@@ -11,12 +11,13 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
+ * 这里启动swagger会报错 所以暂时不启动
  * 该配置类需要在Application同级目录下创建，在项目启动的时候，就初始化该配置类
  *
  * Created by Administrator on 2018/5/14 0014.
  */
 @Configuration
-@EnableSwagger2 //启动swagger2
+//@EnableSwagger2 //启动swagger2
 public class Swagger2Config {
 
     /**
@@ -29,7 +30,7 @@ public class Swagger2Config {
                 .apiInfo(apiInfo())
                 .select()
 //                扫描该包下的所有需要在Swagger中展示的api，@ApiIgnore注解标注的除外
-                .apis(RequestHandlerSelectors.basePackage("com.okdeer.mall.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.okdeer.mall"))
                 .paths(PathSelectors.any())
                 .build();
     }

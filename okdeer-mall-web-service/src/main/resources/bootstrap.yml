@@ -31,7 +31,7 @@ eureka:
     lease-expiration-duration-in-seconds: 10
     prefer-ip-address: true
   client:
-    register-with-eureka: false
+    register-with-eureka: true
     healthcheck:
       enabled: true
     serviceUrl:
@@ -84,3 +84,6 @@ spring:
 #logging:
 #  file: /data/logs/mes-cloud-${spring.application.name}.log
 #  level: info
+#为了更直观的观察sleuth的跟踪信息 改为debug
+logging.level.org.springframework.web.servlet.DispatcherServlet: DEBUG
+
