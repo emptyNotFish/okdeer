@@ -52,26 +52,30 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
-        <dependency>
+        <!--整合zipkin 在整合stream实现zipkin对跟踪信息异步收集时候 这个需要注释替换-->
+<!--        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-        </dependency>
+        </dependency>-->
+        <!--整合logstash-->
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
         </dependency>
+        <!--sleuth整合消息中间件 将跟踪信息进行异步收集 这两个依赖整合和替换spring-cloud-sleuth-zipkin-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-stream</artifactId>
         </dependency>
-        <!--一定要加上这个 否则下面的依赖找不到-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
-        </dependency>
+        <!--rabbit作为消息中间件-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+        </dependency>
+        <!--消息总线-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
         <!--还不知道干什么的-->
         <dependency>
@@ -80,12 +84,12 @@
         </dependency>
         <!-- swagger2 -->
         <dependency>
-        <groupId>io.springfox</groupId>
-        <artifactId>springfox-swagger-ui</artifactId>
-    </dependency>
-        <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
     </dependencies>
 

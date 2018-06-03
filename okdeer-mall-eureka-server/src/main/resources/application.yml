@@ -8,6 +8,11 @@ spring:
     user:
       name: admin
       password: iABvsHDmjD
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 server:
   port: 11001
@@ -42,6 +47,11 @@ spring:
     user:
       name: admin
       password: iABvsHDmjD
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 server:
   port: 11002

@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: rabbitmq-bus
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+server:
+  port: 2009
